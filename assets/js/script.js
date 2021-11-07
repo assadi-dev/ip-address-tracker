@@ -1,6 +1,7 @@
 /** get Data by IP */
 
-const api_link = "http://ip-api.com/json";
+const api_link =
+  "https://geo.ipify.org/api/v2/country,city,vpn?apiKey=at_0Y73EnD3poNyPoViDp3TXykmHTGFK";
 
 /**
  *
@@ -24,13 +25,13 @@ const showOnmap = (lat, long) => {
 const localise = async () => {
   let ip_data = await fetch(api_link).then((res) => res.json());
   let offset = new Date().toString().match(/([A-Z]+[\+-][0-9]+)/)[1];
-  console.log(ip_data);
-  const { query, city, countryCode, zip, timezone, lat, lon, isp } = ip_data;
+
+  const { ip, location, isp } = ip_data;
   let fullTime =
     offset.slice(0, 3) + " " + offset.slice(3, 6) + ":" + offset.slice(6, 8);
-  let fullLocation = `${city},${countryCode} ${zip}`;
-  showOnCardResult(query, fullLocation, fullTime, isp);
-  showOnmap(lat, lon);
+  let fullLocation = `${location.city},${location.country} ${location.postalCode}`;
+  showOnCardResult(ip, fullLocation, location.timezone, isp);
+  showOnmap(location.lat, location.lng);
 };
 
 /**
@@ -54,17 +55,16 @@ function ValidateIPaddress(value) {
  *
  * @param {sting} ip ip value from user
  */
-const localise_by_IP = async (ip) => {
-  let ip_data = await fetch(`${api_link}/${ip}`).then((res) => res.json());
-  let offset = new Date().toString().match(/([A-Z]+[\+-][0-9]+)/)[1];
+const localise_by_IP = async (ipvalue) => {
+  let ip_data = await fetch(`${api_link}&ipAddress=${ipvalue}`).then((res) =>
+    res.json()
+  );
 
-  const { query, city, countryCode, zip, timezone, lat, lon, isp } = ip_data;
+  const { ip, location, isp } = ip_data;
 
-  let fullTime =
-    offset.slice(0, 3) + " " + offset.slice(3, 6) + ":" + offset.slice(6, 8);
-  let fullLocation = `${city},${countryCode} ${zip}`;
-  showOnCardResult(query, fullLocation, fullTime, isp);
-  showOnmap(lat, lon);
+  let fullLocation = `${location.city},${location.country} ${location.postalCode}`;
+  showOnCardResult(ip, fullLocation, location.timezone, isp);
+  showOnmap(location.lat, location.lng);
 };
 
 /**
@@ -89,13 +89,21 @@ localise();
 
 /** coodonates by ip value */
 
-const searchIP = () => {};
-
 const search_form = document.getElementById("form-contents");
 const search_input = document.querySelector("#input input");
 
 search_form.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  let ip_user = document.getElementById("ip-address");
+  let user_location = document.getElementById("location");
+  let user_timezone = document.getElementById("timezone");
+  let user_isp = document.getElementById("isp");
+
+  ip_user.innerHTML = `<i class="fas fa-spinner fa-pulse"></i>`;
+  user_location.innerHTML = `<i class="fas fa-spinner fa-pulse"></i>`;
+  user_timezone.innerHTML = `<i class="fas fa-spinner fa-pulse"></i>`;
+  user_isp.innerHTML = `<i class="fas fa-spinner fa-pulse"></i>`;
 
   let checkIP = false;
   checkIP =
