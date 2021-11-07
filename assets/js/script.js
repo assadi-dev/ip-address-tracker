@@ -25,7 +25,7 @@ const showOnmap = (lat, long) => {
 const localise = async () => {
   let ip_data = await fetch(api_link).then((res) => res.json());
   let offset = new Date().toString().match(/([A-Z]+[\+-][0-9]+)/)[1];
-  console.log(ip_data);
+
   const { ip, location, isp } = ip_data;
   let fullTime =
     offset.slice(0, 3) + " " + offset.slice(3, 6) + ":" + offset.slice(6, 8);
