@@ -35,7 +35,8 @@ const localise = async() => {
     let offset = new Date().toString().match(/([A-Z]+[\+-][0-9]+)/)[1];
     console.log(ip_data);
     const { query, city, countryCode, zip, timezone, lat, lon, isp } = ip_data;
-    let fullTime = offset.slice(0, 6) + ":" + offset.slice(6, 8);
+    let fullTime =
+        offset.slice(0, 3) + " " + offset.slice(3, 6) + ":" + offset.slice(6, 8);
     let fullLocation = `${city},${countryCode} ${zip}`;
     showOnCardResult(query, fullLocation, fullTime, isp);
     showOnmap(lat, lon);
