@@ -1,63 +1,73 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
 
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
     <title>Frontend Mentor | IP Address Tracker</title>
     <!-- mapbox  style link  -->
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
-    <!-- CSS style link  -->
-    <link rel="stylesheet" href="/assets/css/global.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css"
+      rel="stylesheet"
     />
+    <!-- CSS style link  -->
+    <link rel="stylesheet" href="./assets/css/global.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <header>
-        <div id="container">
-            <h1 id="title">IP Address Tracker</h1>
-            <form id="form-contents">
-                <div id="input">
-                    <input type="text" placeholder="Search any IP address of domain">
-                    <button type="submit" id="search-btn"><i class="fas fa-chevron-right"></i></button>
-                </div>
-                <div id="card-result">
-                    <div class="card-body">
-                        <h2 class="card-title">IP ADDRESS</h2>
-                        <p id="ip-address">
-                            <i class="fas fa-spinner fa-pulse "></i>
-                        </p>
-                    </div>
+      <div id="container">
+        <h1 id="title">IP Address Tracker</h1>
+        <form id="form-contents">
+          <div id="input">
+            <input type="text" placeholder="Search any IP address of domain" />
+            <button type="submit" id="search-btn">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+          <div id="card-result">
+            <div class="card-body">
+              <h2 class="card-title">IP ADDRESS</h2>
+              <p id="ip-address">
+                <i class="fas fa-spinner fa-pulse"></i>
+              </p>
+            </div>
 
-                    <div class="card-body">
-                        <h2 class="card-title">LOCATION</h2>
-                        <p id="location"> <i class="fas fa-spinner fa-pulse"></i> </p>
-                    </div>
-                    <div class="card-body">
-                        <h2 class="card-title">TIMEZONE</h2>
-                        <p id="timezone">
-                            <i class="fas fa-spinner fa-pulse"></i>
-                        </p>
-                    </div>
-                    <div class="card-body">
-                        <h2 class="card-title">ISP</h2>
-                        <p id="isp">
-                            <i class="fas fa-spinner fa-pulse"></i>
-                        </p>
-                    </div>
-                </div>
-            </form>
-        </div>
+            <div class="card-body">
+              <h2 class="card-title">LOCATION</h2>
+              <p id="location"><i class="fas fa-spinner fa-pulse"></i></p>
+            </div>
+            <div class="card-body">
+              <h2 class="card-title">TIMEZONE</h2>
+              <p id="timezone">
+                <i class="fas fa-spinner fa-pulse"></i>
+              </p>
+            </div>
+            <div class="card-body">
+              <h2 class="card-title">ISP</h2>
+              <p id="isp">
+                <i class="fas fa-spinner fa-pulse"></i>
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
     </header>
-    <div id="map">
-
-    </div>
+    <div id="map"></div>
 
     <!--   <footer>
         Challenge by
@@ -68,9 +78,7 @@
     <div class="attribution">-->
 
     <!--mapbox-->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
-    <script src="/assets/js/script.js"></script>
-
-</body>
-
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
